@@ -37,7 +37,7 @@ GoRouter router(RouterRef ref) {
           (state.matchedLocation == '/resetPassword');
 
       if (authenticated == false) {
-        return authenticating ? null : '/signup';
+        return authenticating ? null : '/signin';
       }
 
       final verifyingEmail = state.matchedLocation == '/verifyEmail';
