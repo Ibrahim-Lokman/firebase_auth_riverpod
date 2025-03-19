@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "352591970314",
+    "project_id": "fbase-auth-riverpod",
+    "storage_bucket": "fbase-auth-riverpod.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:352591970314:android:c8ff26a01bca9022f95ff3",
+        "android_client_info": {
+          "package_name": "com.example.firebase_auth_riverpod"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAFLdN6a4FSp9svKxImr9FgwmKkeaUfoN8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
