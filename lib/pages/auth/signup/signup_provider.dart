@@ -6,8 +6,15 @@ part 'signup_provider.g.dart';
 
 @riverpod
 class Signup extends _$Signup {
+  Object? _key;
   @override
-  FutureOr<void> build() {}
+  FutureOr<void> build() {
+    _key = Object();
+    ref.onDispose(() {
+      print("['### Signup Provider disposed ###']");
+      _key = null;
+    });
+  }
 
   Future<void> signup({
     required String name,
@@ -16,10 +23,16 @@ class Signup extends _$Signup {
   }) async {
     state = const AsyncLoading<void>();
 
-    state = await AsyncValue.guard<void>(
+    final key = _key;
+
+    final newState = await AsyncValue.guard<void>(
       () => ref
           .read(authRepositoryProvider)
           .signup(name: name, email: email, password: password),
     );
+
+    if (key == _key) {
+      state = newState;
+    }
   }
 }
