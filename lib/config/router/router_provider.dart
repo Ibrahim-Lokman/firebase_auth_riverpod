@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_auth_riverpod/config/router/route_names.dart';
+import 'package:firebase_auth_riverpod/constants/firebase_constants.dart';
 import 'package:firebase_auth_riverpod/pages/auth/reset_password/reset_password_page.dart';
 import 'package:firebase_auth_riverpod/pages/auth/signin/signin_page.dart';
 import 'package:firebase_auth_riverpod/pages/auth/signup/signup_page.dart';
@@ -38,6 +39,10 @@ GoRouter router(RouterRef ref) {
 
       if (authenticated == false) {
         return authenticating ? null : '/signin';
+      }
+
+      if (!fbAuth.currentUser!.emailVerified) {
+        return '/verifyEmail';
       }
 
       final verifyingEmail = state.matchedLocation == '/verifyEmail';
